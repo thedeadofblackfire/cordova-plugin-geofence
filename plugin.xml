@@ -47,9 +47,12 @@
 		<source-file src="src/android/TransitionJobService.java" target-dir="src/com/cowbell/cordova/geofence" />
         <source-file src="src/android/RemoveGeofenceCommand.java" target-dir="src/com/cowbell/cordova/geofence" />
 
+        <!-- Default versions for Gradle dependencies -->
+        <preference name="ANDROID_GSON_VERSION" default="2.3" />
 		<preference name="GOOGLE_API_VERSION" default="11.8.0" />
+
 		<framework src="com.google.android.gms:play-services-location:$GOOGLE_API_VERSION"/>
-        <lib-file src="src/android/libs/gson-2.3.jar" />
+        <framework src="com.google.code.gson:gson:$ANDROID_GSON_VERSION" />
 
         <config-file target="config.xml" parent="/*">
             <feature name="GeofencePlugin">
@@ -68,7 +71,7 @@
                 </intent-filter>
             </receiver>
         </config-file>
-		
+
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
 			<service
 		        android:name="com.cowbell.cordova.geofence.TransitionJobService"
@@ -76,7 +79,7 @@
 		        android:exported="true">
 		    </service>
 		</config-file>
-		
+
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
