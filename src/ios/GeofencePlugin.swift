@@ -194,9 +194,10 @@ func log(_ messages: [String]) {
     
     func evaluateJs (_ script: String) {
         if let webView = webView {
-            if let uiWebView = webView as? UIWebView {
-                uiWebView.stringByEvaluatingJavaScript(from: script)
-            } else if let wkWebView = webView as? WKWebView {
+            //if let uiWebView = webView as? UIWebView {
+            //    uiWebView.stringByEvaluatingJavaScript(from: script)
+            //} else if let wkWebView = webView as? WKWebView {
+			if let wkWebView = webView as? WKWebView {
                 wkWebView.evaluateJavaScript(script, completionHandler: nil)
             }
         } else {
